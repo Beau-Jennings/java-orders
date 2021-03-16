@@ -6,18 +6,17 @@ import java.util.Set;
 
 @Entity
 @Table(name = "orders")
-public class Order {
+public class Order
+{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long ordnum;
-
     private double ordamount;
     private double advanceamount;
 
     @ManyToOne
     @JoinColumn(name = "custcode", nullable = false)
     private Customer customer;
-
     private String orderdescription;
 
     @ManyToMany()
@@ -29,10 +28,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(double ordamount,
-                 double advanceamount,
-                 Customer customer,
-                 String orderdescription)
+    public Order(double ordamount, double advanceamount, Customer customer, String orderdescription)
     {
         this.ordamount = ordamount;
         this.advanceamount = advanceamount;
